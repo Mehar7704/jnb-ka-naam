@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" data-theme="rose-romance">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❤️ MERI MOHTARMA KE LIYE EK KHOOBSURAT DUNIYA 🌹</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        rosePrimary: 'var(--color-primary)',
+                        roseSecondary: 'var(--color-secondary)',
+                        lavenderLight: 'var(--color-accent1)',
+                        lavenderDark: 'var(--color-accent2)',
+                        midnightBg: 'var(--color-bg)',
+                        goldAccent: 'var(--color-gold)',
+                    },
+                    fontFamily: {
+                        playfair: ['"Playfair Display"', 'serif'],
+                        poppins: ['"Poppins"', 'sans-serif'],
+                        urdu: ['"Noto Nastaliq Urdu"', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Theme Color Variables */
+        :root[data-theme="rose-romance"] {
+            --color-primary: #ff758c;
+            --color-secondary: #ff7eb3;
+            --color-accent1: #e0c3fc;
+            --color-accent2: #8ec5fc;
+            --color-bg: #1a0b2e;
+            --color-gold: #ffd700;
+            --gradient-bg: radial-gradient(circle at center, #1a0b2e 0%, #0c0c1e 100%);
+        }
+        :root[data-theme="midnight-sapphire"] {
+            --color-primary: #38bdf8;
+            --color-secondary: #818cf8;
+            --color-accent1: #cbd5e1;
+            --color-accent2: #60a5fa;
+            --color-bg: #030712;
+            --color-gold: #38bdf8;
+            --gradient-bg: radial-gradient(circle at center, #0f172a 0%, #030712 100%);
+        }
+        :root[data-theme="royal-emerald"] {
+            --color-primary: #34d399;
+            --color-secondary: #059669;
+            --color-accent1: #a7f3d0;
+            --color-accent2: #6ee7b7;
+            --color-bg: #022c22;
+            --color-gold: #fbbf24;
+            --gradient-bg: radial-gradient(circle at center, #064e3b 0%, #022c22 100%);
+        }
+        :root[data-theme="sunset-amber"] {
+            --color-primary: #fb923c;
+            --color-secondary: #f43f5e;
+            --color-accent1: #fed7aa;
+            --color-accent2: #fb7185;
+            --color-bg: #29110d;
+            --color-gold: #f59e0b;
+            --gradient-bg: radial-gradient(circle at center, #3d1510 0%, #1a0806 100%);
+        }
+        :root[data-theme="mystic-lavender"] {
+            --color-primary: #c084fc;
+            --color-secondary: #e879f9;
+            --color-accent1: #f5d0fe;
+            --color-accent2: #d8b4fe;
+            --color-bg: #1e1b4b;
+            --color-gold: #fef08a;
+            --gradient-bg: radial-gradient(circle at center, #312e81 0%, #1e1b4b 100%);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--gradient-bg);
+            color: #f3f4f6;
+            overflow-x: hidden;
+            transition: background 0.5s ease;
+        }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .font-urdu { font-family: 'Noto Nastaliq Urdu', serif; direction: rtl; }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .glass-card-hover:hover {
+            background: rgba(255, 255, 255, 0.09);
+            border-color: var(--color-primary);
+            transform: translateY(-4px);
+            transition: all 0.3s ease;
+        }
+
+        /* Canvas Floating Petals & Stars */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--color-bg); }
+        ::-webkit-scrollbar-thumb { background: var(--color-primary); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--color-secondary); }
+
+        /* Glowing Animations */
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-gold); }
+            50% { text-shadow: 0 0 20px var(--color-secondary), 0 0 30px var(--color-gold); }
+        }
+        .animate-glow { animation: glow 3s infinite ease-in-out; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float { animation: float 4s infinite ease-in-out; }
+
+        /* Page Transition */
+        .page-content {
+            animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.97) translateY(15px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* Rang-birangi (multi-colour) accents */
+        .space-y-6 > p:nth-child(6n+1) { color: #ffd1dc; }
+        .space-y-6 > p:nth-child(6n+2) { color: #fde68a; }
+        .space-y-6 > p:nth-child(6n+3) { color: #bae6fd; }
+        .space-y-6 > p:nth-child(6n+4) { color: #bbf7d0; }
+        .space-y-6 > p:nth-child(6n+5) { color: #fed7aa; }
+        .space-y-6 > p:nth-child(6n+6) { color: #e9d5ff; }
+        .grid > .glass-card:nth-child(6n+1), .grid > div:nth-child(6n+1) { border-color: #ff758c88; }
+        .grid > .glass-card:nth-child(6n+2), .grid > div:nth-child(6n+2) { border-color: #ffd70088; }
+        .grid > .glass-card:nth-child(6n+3), .grid > div:nth-child(6n+3) { border-color: #38bdf888; }
+        .grid > .glass-card:nth-child(6n+4), .grid > div:nth-child(6n+4) { border-color: #34d39988; }
+        .grid > .glass-card:nth-child(6n+5), .grid > div:nth-child(6n+5) { border-color: #fb923c88; }
+        .grid > .glass-card:nth-child(6n+6), .grid > div:nth-child(6n+6) { border-color: #c084fc88; }
+        .grid > :nth-child(6n+1) h4 { color: #ff9eb1 !important; }
+        .grid > :nth-child(6n+2) h4 { color: #ffe066 !important; }
+        .grid > :nth-child(6n+3) h4 { color: #7dd3fc !important; }
+        .grid > :nth-child(6n+4) h4 { color: #6ee7b7 !important; }
+        .grid > :nth-child(6n+5) h4 { color: #fdba74 !important; }
+        .grid > :nth-child(6n+6) h4 { color: #d8b4fe !important; }
+        .grid > :nth-child(6n+1) > .text-rosePrimary { color: #ff758c; }
+        .grid > :nth-child(6n+2) > .text-rosePrimary { color: #ffd700; }
+        .grid > :nth-child(6n+3) > .text-rosePrimary { color: #38bdf8; }
+        .grid > :nth-child(6n+4) > .text-rosePrimary { color: #34d399; }
+        .grid > :nth-child(6n+5) > .text-rosePrimary { color: #fb923c; }
+        .grid > :nth-child(6n+6) > .text-rosePrimary { color: #c084fc; }
+        .space-y-6 .grid .space-y-3 > p { color: #fcd34d; }
+        .space-y-2 > li:nth-child(5n+1) span:first-child { color: #ff758c; }
+        .space-y-2 > li:nth-child(5n+2) span:first-child { color: #ffd700; }
+        .space-y-2 > li:nth-child(5n+3) span:first-child { color: #38bdf8; }
+        .space-y-2 > li:nth-child(5n+4) span:first-child { color: #34d399; }
+        .space-y-2 > li:nth-child(5n+5) span:first-child { color: #c084fc; }
+
+        /* Lock Screen */
+        #lock-screen { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 1rem; background: var(--gradient-bg); transition: opacity 0.6s ease, visibility 0.6s ease; }
+        #lock-screen.unlocked { opacity: 0; visibility: hidden; pointer-events: none; }
+        body.locked { overflow: hidden; }
+        @keyframes shake { 0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-10px)} 40%,80%{transform:translateX(10px)} }
+        .shake { animation: shake 0.4s; }
+        @keyframes pop { from { opacity:0; transform: scale(0.8); } to { opacity:1; transform: scale(1); } }
+        .pop { animation: pop 0.6s cubic-bezier(0.16,1,0.3,1) forwards; }
+    </style>
+</head>
+<body class="locked min-h-screen flex flex-col justify-between relative selection:bg-rosePrimary selection:text-white">
+
+
+    <!-- Lock Screen -->
+    <div id="lock-screen">
+        <div class="glass-card rounded-3xl p-8 md:p-10 w-full max-w-md text-center relative z-10 border border-white/20">
+            <div id="lock-form">
+                <div class="text-5xl mb-4 animate-float">🔒</div>
+                <h2 class="font-playfair text-2xl font-bold bg-gradient-to-r from-yellow-200 via-pink-300 to-sky-300 bg-clip-text text-transparent">Yeh Duniya Locked Hai</h2>
+                <p class="text-white/70 text-sm mt-2">Andar jaane ke liye passcode likhein</p>
+                <p class="mt-5 text-lg font-playfair italic text-amber-300 animate-glow">💡 Hint: ______ ki jan hon main</p>
+                <input id="lock-input" type="password" autocomplete="off" placeholder="Passcode yahan likhein..." class="mt-6 w-full px-4 py-3 rounded-full bg-black/30 border border-white/20 text-center text-white placeholder-white/40 outline-none focus:border-rosePrimary" onkeydown="if(event.key==='Enter')checkPasscode()">
+                <button onclick="checkPasscode()" class="mt-4 w-full px-6 py-3 rounded-full bg-gradient-to-r from-rosePrimary via-roseSecondary to-goldAccent text-white font-semibold shadow-lg hover:scale-105 transition">Unlock Karein 🔓</button>
+                <p id="lock-error" class="mt-3 text-sm text-red-300 hidden">Galat passcode 💔 dobara koshish karein.</p>
+            </div>
+            <div id="lock-success" class="hidden pop">
+                <div class="text-5xl mb-3">🎉👑🎉</div>
+                <h2 class="font-playfair text-2xl md:text-3xl font-bold bg-gradient-to-r from-pink-300 via-yellow-200 to-sky-300 bg-clip-text text-transparent">Congratulations! 🎊</h2>
+                <p class="mt-4 text-xl font-semibold text-pink-200">Aap Pagal Ki Jaan Hain ❤️</p>
+                <p class="mt-3 text-base text-amber-200 font-playfair italic">Pagal ke dil ki akeli dost aur Rani 👑</p>
+                <button onclick="enterWorld()" class="mt-8 px-8 py-3 rounded-full bg-gradient-to-r from-rosePrimary via-goldAccent to-roseSecondary text-white font-bold shadow-xl hover:scale-105 transition animate-glow">Andar Aayein 💌</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Particle Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Top Navigation Header -->
+    <header class="relative z-20 w-full py-3 px-4 md:px-8 flex flex-wrap items-center justify-between gap-4 glass-card border-b border-white/10">
+        <div class="flex items-center space-x-3 cursor-pointer" onclick="goToPage(1)">
+            <span class="text-2xl animate-pulse">❤️</span>
+            <h1 class="font-playfair text-base md:text-xl font-bold bg-gradient-to-r from-rosePrimary via-lavenderLight to-goldAccent bg-clip-text text-transparent">
+                Mohtarma Ki Duniya
+            </h1>
+        </div>
+
+        <!-- Center: Live Digital Clock & Date -->
+        <div class="hidden md:flex flex-col items-center justify-center bg-black/20 px-4 py-1.5 rounded-2xl border border-white/10">
+            <div id="live-time" class="text-xs font-semibold tracking-wider text-roseSecondary font-mono">00:00:00 AM</div>
+            <div id="live-date" class="text-[10px] text-white/70">Tareekh load ho rahi hai...</div>
+        </div>
+
+        <!-- Right Controls: Theme Selector, Music Player & Drawer Toggle -->
+        <div class="flex items-center space-x-3">
+            <!-- Theme Dropdown Switcher -->
+            <div class="relative">
+                <button onclick="toggleThemeDropdown()" class="p-2.5 rounded-full glass-card hover:bg-white/20 transition text-rosePrimary flex items-center space-x-1 text-xs font-medium" title="Rang Badlein">
+                    <i class="fa-solid fa-palette text-sm"></i>
+                    <span class="hidden lg:inline">Rang</span>
+                </button>
+                <div id="theme-dropdown" class="absolute right-0 mt-2 w-48 glass-card bg-midnightBg/95 backdrop-blur-2xl rounded-2xl shadow-2xl p-2 hidden z-50 border border-white/10">
+                    <button onclick="setTheme('rose-romance')" class="w-full text-left px-3 py-2 rounded-xl text-xs hover:bg-white/10 flex items-center space-x-2"><span class="w-3 h-3 rounded-full bg-[#ff758c]"></span><span>Gulaabi Mohabbat</span></button>
+                    <button onclick="setTheme('midnight-sapphire')" class="w-full text-left px-3 py-2 rounded-xl text-xs hover:bg-white/10 flex items-center space-x-2"><span class="w-3 h-3 rounded-full bg-[#38bdf8]"></span><span>Aadhi Raat Neelam</span></button>
+                    <button onclick="setTheme('royal-emerald')" class="w-full text-left px-3 py-2 rounded-xl text-xs hover:bg-white/10 flex items-center space-x-2"><span class="w-3 h-3 rounded-full bg-[#34d399]"></span><span>Shahi Zumurrad</span></button>
+                    <button onclick="setTheme('sunset-amber')" class="w-full text-left px-3 py-2 rounded-xl text-xs hover:bg-white/10 flex items-center space-x-2"><span class="w-3 h-3 rounded-full bg-[#fb923c]"></span><span>Ghuroob Sunehra</span></button>
+                    <button onclick="setTheme('mystic-lavender')" class="w-full text-left px-3 py-2 rounded-xl text-xs hover:bg-white/10 flex items-center space-x-2"><span class="w-3 h-3 rounded-full bg-[#c084fc]"></span><span>Pur-Israar Lavender</span></button>
+                </div>
+            </div>
+
+            <!-- Enhanced Ambient Music Player -->
+            <div class="flex items-center space-x-2 bg-black/20 px-3 py-1.5 rounded-full border border-white/10">
+                <button id="audio-toggle" onclick="toggleAudio()" class="text-rosePrimary hover:scale-110 transition text-sm flex items-center space-x-1.5">
+                    <i id="audio-icon" class="fa-solid fa-play"></i>
+                    <span id="audio-text" class="text-xs hidden sm:inline font-medium">Dhun</span>
+                </button>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.5" onchange="changeVolume(this.value)" oninput="changeVolume(this.value)" class="w-14 sm:w-16 accent-rosePrimary cursor-pointer h-1 bg-white/20 rounded-lg" title="Awaaz">
+            </div>
+
+            <!-- Quick Jump Drawer Toggle -->
+            <button onclick="toggleDrawer()" class="p-2.5 rounded-full glass-card hover:bg-white/20 transition text-goldAccent" title="Safhe Par Jayein">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Quick Jump Sidebar Drawer -->
+    <div id="sidebar-drawer" class="fixed inset-y-0 right-0 z-50 w-80 glass-card bg-midnightBg/95 backdrop-blur-2xl transform translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col border-l border-white/10 shadow-2xl">
+        <div class="flex items-center justify-between pb-4 border-b border-white/10">
+            <h3 class="font-playfair font-bold text-lg text-rosePrimary">🌸 Safhat (1-30)</h3>
+            <button onclick="toggleDrawer()" class="text-white/70 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="flex-1 overflow-y-auto py-4 space-y-2 pr-1" id="drawer-list">
+            <!-- Dynamically populated page buttons -->
+        </div>
+    </div>
+
+    <!-- Main Content Container (Dynamic 30 Pages) -->
+    <main class="relative z-10 flex-1 max-w-4xl w-full mx-auto px-4 py-8 md:py-12 flex flex-col justify-center items-center">
+        <div id="page-container" class="w-full">
+            <!-- Page content renders here dynamically -->
+        </div>
+    </main>
+
+    <!-- Bottom Pagination Footer Bar -->
+    <footer class="relative z-20 w-full py-4 px-6 md:px-12 glass-card border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center space-x-2 text-sm text-white/70">
+            <span>Safha <strong id="current-page-num" class="text-rosePrimary text-base">1</strong> / <span class="text-goldAccent">30</span></span>
+        </div>
+
+        <div class="flex items-center space-x-3">
+            <button onclick="changePage(-1)" id="prev-btn" class="px-5 py-2 rounded-full glass-card hover:bg-white/20 transition text-sm font-medium flex items-center space-x-2 disabled:opacity-40 disabled:cursor-not-allowed">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Pichla</span>
+            </button>
+
+            <div class="flex items-center space-x-1 overflow-x-auto max-w-[200px] sm:max-w-xs px-2 py-1" id="pagination-dots">
+                <!-- Dots generated in JS -->
+            </div>
+
+            <button onclick="changePage(1)" id="next-btn" class="px-5 py-2 rounded-full bg-gradient-to-r from-rosePrimary to-roseSecondary text-white shadow-lg hover:opacity-90 transition text-sm font-medium flex items-center space-x-2">
+                <span>Agla</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <div class="text-xs text-white/50 font-playfair italic">
+            Meri Khoobsurat Mohtarma Ke Liye ❤️
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // 30 Pages Data Structure (Unchanged and Fully Intact)
+        const pagesData = [
+            {
+                page: 1,
+                title: "MERI DUNIYA MEIN KHUSH AAMDEED",
+                heading: "Meri Chhoti Si Duniya Mein Khush Aamdeed, Mohtarma ❤️",
+                subheading: "Ek khoobsurat si duniya, sirf aapke liye.",
+                message: "Meri Mohtarma, ek aisi jagah mein khush aamdeed jahan har rang mujhe aapki khoobsurti yaad dilata hai, har phool aapki muskurahat yaad dilata hai, aur har dhadkan mein aapke liye ek chhota sa ehsaas hai.\n\nAaj main aapko apne dil ke ek khoobsurat safar par le jana chahta hoon. Har safha mein ek chhota sa paigham hai, har phool mein ek chhota sa jazba hai, aur har lamha aapke chehre par muskurahat laane ke liye banaya gaya hai.",
+                button: { text: "Mere Dil Mein Aayein 💌", action: "next" }
+            },
+            {
+                page: 2,
+                title: "MERI KHOOBSURAT MOHTARMA",
+                heading: "Waqai Ek Khaas Shakhsiyat 👑",
+                message: "Mohtarma, aap mein kuch aisa behad khoobsurat hai jise alfaz kabhi poori tarah bayan nahi kar sakte. Aapki mojoodgi aam lamhon ko khaas bana deti hai, aur aapki muskurahat aas-paas ki duniya mein narmi bhar deti hai.\n\nAap sirf woh nahi jinhein main saraahta hoon; aap woh hain jinki main sachche dil se qadar karta hoon. Aapki shakhsiyat mein ek anokhi khoobsurti hai jo aapko apne andaaz mein yaadgaar banati hai.",
+                ending: "Aap apni jagah bohat khaas hain, Mohtarma. ❤️"
+            },
+            {
+                page: 3,
+                title: "AAP MERI CHANDNI HAIN",
+                heading: "Aap Meri Chandni Hain 🌙",
+                message: "Agar meri zindagi ek andheri raat ka aasmaan hoti, to aap woh chaand hotin jo ise haseen bana deta hai.\n\nJis tarah chaand raat mein jaadu bhar deta hai, usi tarah aapki mojoodgi meri duniya mein ek khaas khoobsurti bhar deti hai.\n\nHazaron taaron ke beech bhi aapmein hamesha kuch aisa hoga jo meri nazron ko kheench lega. Aapki khoobsurti sirf dekhne ki cheez nahi; yeh ek ehsaas hai jise alfaz poori tarah bayan nahi kar sakte.",
+                ending: "Aap meri pasandeeda qism ka jaadu hain. ✨"
+            },
+            {
+                page: 4,
+                title: "MERE DIL SE EK KHAT",
+                heading: "Aapke Liye Ek Chhota Sa Khat 💌",
+                letterHeader: "Meri Pyari Mohtarma,",
+                letterBody: "Kabhi kabhi main chahta hoon ke apne saare jazbaat alfaz mein dhaal sakoon, lekin mera dil hamesha mere alfaz se zyada kehna chahta hai.\n\nBas main chahta hoon aap jaanein ke aapki qadar ki jaati hai, aapko saraha jaata hai, aur aapko sabse pyaare andaaz mein yaad kiya jaata hai.\n\nYeh chhoti si website mere un jazbaat ko baantne ka tareeqa hai jinhein shayad main hamesha bayan karna nahi jaanta.\n\nYahan har lafz mein thodi garmaahat hai, har safhe mein ek chhoti si soch hai, aur har paigham is umeed se likha gaya hai ke aap muskuraein.\n\nMujhe umeed hai ke aapko yeh chhota sa safar utna hi pasand aayega jitna mujhe isse aapke liye banane mein aaya.",
+                letterSign: "Bohat izzat aur mohabbat ke saath,\nWoh jo aapko waqai khaas samajhta hai. ❤️"
+            },
+            {
+                page: 5,
+                title: "AAP KHAAS KYUN HAIN",
+                heading: "Aapko Itna Khaas Kya Banata Hai? ✨",
+                type: "cards",
+                cards: [
+                    { title: "Aapki Muskurahat 😊", text: "Aapki muskurahat mein woh khoobsurti hai jo ek aam din ko bhi roshan kar deti hai." },
+                    { title: "Aapki Shakhsiyat 🌸", text: "Aapke apne aap ko sambhalne ke andaaz mein kuch bohat pyaara hai." },
+                    { title: "Aapki Meharbani 🤍", text: "Meharbani insaan ki sabse khoobsurat sifaat mein se ek hai." },
+                    { title: "Aapki Mojoodgi 🦋", text: "Kuch log sirf maujood hone se hi ek lamhe ko yaadgaar bana dete hain." },
+                    { title: "Aapki Anokhi Shaan 👑", text: "Aapka koi doosra version nahi, aur yahi aapki khoobsurti ka hissa hai." },
+                    { title: "Aapki Nafaasat 🌷", text: "Aap saadgi ko bhi khoobsurat bana dene ka apna hi andaaz rakhti hain." }
+                ],
+                ending: "Aap alfaz se kahin zyada tareeqon se khoobsurat hain. ❤️"
+            },
+            {
+                page: 6,
+                title: "AAPKI KHOOBSURAT MUSKURAHAT",
+                heading: "Muskurati Rahein, Mohtarma 😊",
+                message: "Agar main roz aapke liye ek khoobsurat cheez ki dua kar sakoon, to woh aapke chehre par ek sachchi muskurahat hogi.\n\nAapki subhein khushi laayein, dopaharein sukoon laayein, aur raatein aaraam laayein.\n\nJab zindagi mushkil ho to aapko himmat mile, aur jab cheezein plan ke mutabiq na hon to umeed mile.\n\nAur jab bhi zindagi bhaari lage, aapko dobara muskurane ki koi chhoti si wajah mil jaye.",
+                specialLine: "Aapki muskurahat is duniya ki saari khushiyon ki haqdaar hai. 🌷"
+            },
+            {
+                page: 7,
+                title: "AAPKI WOH BAATEIN JO MUJHE PASAND HAIN",
+                heading: "Aapki Chhoti Chhoti Baatein Jo Mujhe Pasand Hain 💗",
+                type: "list",
+                items: [
+                    "Aapki muskurahat ki khoobsurti.",
+                    "Aapki shakhsiyat ki mithaas.",
+                    "Aam lamhon ko khaas bana dene ka aapka andaaz.",
+                    "Apne aap ko bayan karne ka aapka anokha tareeqa.",
+                    "Aapki nafaasat.",
+                    "Aapki khoobsurat infiraadiyat.",
+                    "Woh khushi jo aapki mojoodgi la sakti hai.",
+                    "Woh chhoti chhoti baatein jo aapko aap banati hain.",
+                    "Aapka ek pyaara taassur chhodne ka andaaz.",
+                    "Apne khoobsurat andaaz mein khud rehne ki salahiyat.",
+                    "Aapki shakhsiyat ka husn.",
+                    "Woh saadi cheezein jo aapko sabse alag karti hain.",
+                    "Khoobsurat cheezein hasil karne ki aapki salahiyat.",
+                    "Woh yaadein jo aapki mojoodgi se jurri hain.",
+                    "Bas yeh haqeeqat ke aap, aap hain."
+                ],
+                ending: "Yeh chhoti chhoti baatein hi aapko na-qaabil-e-faramosh banati hain. ❤️"
+            },
+            {
+                page: 8,
+                title: "AGAR AAP PHOOL HOTIN",
+                heading: "Agar Aap Ek Phool Hotin 🌹",
+                message: "Agar aap phool hotin, to aap woh hotin jo poore baagh ko aur bhi khoobsurat bana deti.\n\nAgar aap gulaab hotin, to aapko khaas banane wali sirf aapki khoobsurti nahi hoti; woh ehsaas hota jo aap kisi ke dil mein chhod jaatin.\n\nAur agar main aapko ek baagh tohfe mein de sakta, to main usse har us phool se bharta jo mujhe aapki nafaasat yaad dilata hai.\n\nGulaabi gulaab pasandeedgi ki, safed phool sachchai ki, aur sunehri phool us khushi ki nishani hote jo main aapki zindagi ke liye chahta hoon.",
+                ending: "Kuch phool baaghon mein khilte hain; kuch dilon mein yaadein khilate hain. 🌸"
+            },
+            {
+                page: 9,
+                title: "MERI PASANDEEDA SHAKHSIYAT",
+                heading: "Ek Qabil-e-Qadar Insaan ❤️",
+                message: "Logon se bhari is duniya mein kuch log hamare dilon mein ek khaas jagah bana lete hain.\n\nMohtarma, aap mere liye unhi mein se ek hain.\n\nKisi ko khaas banane ke liye bade bade ishaaron ki zaroorat nahi hoti. Kabhi kabhi ek khayal, ek muskurahat, ya ek saadi si baat cheet hi ek lamhe ko yaadgaar bana deti hai.\n\nSabse khoobsurat rishtay aksar chhote ishaaron, sachche alfaz aur khaalis izzat se bante hain.\n\nAur yahi baat aapko mere liye itna khaas banati hai.",
+                ending: "Kuch log bas milne mein hi khushi dete hain. Aap unhi mein se hain. 🌷"
+            },
+            {
+                page: 10,
+                title: "AAP MERI DUNIYA KO HASEEN BANATI HAIN",
+                heading: "Meri Duniya Mein Thodi Aur Khoobsurti 🌎",
+                message: "Duniya pehle hi khoobsurat cheezon se bhari hai: rangeen ghuroob, pursukoon raatein, khilte phool, aur be-shumaar taare.\n\nLekin kabhi kabhi koi insaan sirf apne aap hone se hi is duniya ka ek khoobsurat hissa ban jaata hai.\n\nMere liye aap woh hain jo aam khayalon aur roz marra ke lamhon mein thodi si zyada khoobsurti le aati hain.\n\nKitni hairat ki baat hai ke kisi ka ek saada sa khayal bina kisi khaas wajah ke chehre par muskurahat le aata hai.",
+                ending: "Jab main aapke baare mein sochta hoon, duniya thodi aur haseen lagti hai. ✨"
+            },
+            {
+                page: 11,
+                title: "HAMARI YAADON KI GALI",
+                heading: "Chhoti Yaadein, Khoobsurat Jazbaat 📸",
+                message: "Har khoobsurat kahani mein kuch lamhe yaad rakhne ke qaabil hote hain. Yeh safha yaadon, muskurahaton, baaton aur un lamhon ka ek chhota sa majmua hai jo dil mein jagah ke haqdaar hain. Har tasveer ki ek kahani hai, aur har kahani mein ek ehsaas hai.",
+                type: "memories",
+                captions: [
+                    "Ek lamha jo yaad rakhne ke qaabil hai. 🌸",
+                    "Ek chhoti si yaad, ek umar bhar ki muskurahat. ❤️",
+                    "Khoobsurat lamhe khoobsurat yaadein ban jaate hain.",
+                    "Kuch yaadon ka husn kabhi kam nahi hota.",
+                    "Tasveer ek pal ki hoti hai, magar uski yaad hamesha reh sakti hai."
+                ],
+                note: "Note: Yahan apni real photos, meaningful images, ya beautiful romantic illustrations add karein."
+            },
+            {
+                page: 12,
+                title: "CHHOTE LAMHE, BADE JAZBAAT",
+                heading: "Chhote Lamhe, Khoobsurat Jazbaat 🦋",
+                message: "Kabhi kabhi sabse chhote lamhe sabse gehra asar chhod jaate hain.\n\nEk saada sa salaam, ek pyaari baat cheet, ek saath ki hansi, ya ek achanak muskurahat yaad rakhne ke qaabil ban sakti hai.\n\nHar khoobsurat yaad ke liye kisi bade moqe ki zaroorat nahi hoti. Kabhi kabhi sabse saade lamhe hi sabse ba-maani hote hain.\n\nZindagi chhote chhote lamhon se bani hai, aur yahi lamhe aksar un kahaniyon mein badal jaate hain jinhein hum sabse mohabbat se yaad karte hain.",
+                ending: "Yeh chhoti chhoti baatein hi kahani ko khoobsurat banati hain. 💗"
+            },
+            {
+                page: 13,
+                title: "HAMARI KHWABON WALI SHAAM",
+                heading: "Ek Perfect Shaam Ka Chhota Sa Khwab 🌃",
+                subheading: "Zara Tasawwur Karein:",
+                message: "Ek pursukoon shaam, ek haseen ghuroob, gulaabi aur sunehri rangon se rangaa aasmaan, peeche halki si dhun, aur ek aisi jagah jahan waqt thehra hua mehsoos ho.\n\nEk pyaari baat cheet, kuch sachchi muskurahatein, aur kahin jaldi jaane ki zaroorat nahi.\n\nBas ek khoobsurat lamha jo sukoon, hansi aur ba-maani alfaz se bhara ho.\n\nShayad ek khoobsurat baagh mein sair, ek khaamosh raat ka khana, ya shaam ke aasmaan mein taaron ko ubharte dekhne ka mauqa.\n\nKabhi kabhi behtareen lamhe is baat se nahi hote ke aap kahan hain, balke is baat se hote hain ke woh lamha kitna haseen lagta hai.",
+                ending: "Kabhi kabhi sabse saade lamhe sabse meethe khwab bana dete hain. 🌅"
+            },
+            {
+                page: 14,
+                title: "UNHI TAARON KE NEECHE",
+                heading: "Kahin Ek Hi Aasmaan Ke Neeche ⭐",
+                message: "Raat ke aasmaan ko dekhiye. Har taare ki apni jagah, apni roshni, aur apni khoobsurti hai.\n\nAur shayad yahi baat logon ko bhi khaas banati hai. Har kisi ke andar kuch anokha hota hai.\n\nJab bhi main zindagi ki khoobsurat cheezon ke baare mein sochta hoon, aap un khayalon mein se ek ban jaati hain jo mere chehre par muskurahat le aate hain.\n\nTaare humein yaad dilate hain ke sabse andheri raaton mein bhi chhoti chhoti roshniyan sab kuch haseen bana sakti hain.",
+                ending: "Taare hamesha aapko yaad dilate rahein ke aap kitni anokhi hain. 🌙"
+            },
+            {
+                page: 15,
+                title: "YAADON KA BAAGH",
+                heading: "Khoobsurat Khayalon Se Bhara Baagh 🌺",
+                type: "garden",
+                flowers: [
+                    { name: "Khushi 🌼", wish: "Aapki zindagi mein hamesha muskurane ki wajahein rahein." },
+                    { name: "Sukoon 🤍", wish: "Aapka dil hamesha pursukoon lamhe paaye." },
+                    { name: "Kamyabi 🌻", wish: "Aapki mehnat aapko khoobsurat kamyabiyon tak le jaye." },
+                    { name: "Mohabbat 💗", wish: "Aap hamesha sachchi fikr aur meharbani se ghiri rahein." },
+                    { name: "Umeed 🌷", wish: "Har nayi subah naye imkaanaat laye." },
+                    { name: "Aitmaad 🌸", wish: "Aap hamesha apni salahiyaton par yaqeen rakhein aur apni qadar pehchanein." },
+                    { name: "Khoobsurat Khwab ✨", wish: "Aapke khwab aapko woh sab banne ki himmat dein jo aap banna chahti hain." }
+                ],
+                ending: "Agar duaein phool hotin, to main aapka poora baagh khushiyon se bhar deta. ❤️"
+            },
+            {
+                page: 16,
+                title: "APNA SURPRISE KHOLEIN",
+                heading: "Aapke Liye Ek Chhota Sa Surprise 🎁",
+                type: "surprise_box",
+                intro: "Mohtarma, mere paas aapke liye kuch khaas hai.\n\nYeh mehnge kaghaz mein lipta hua koi tohfa nahi, aur na hi isko kisi bade jashn ki zaroorat hai.\n\nYeh khoobsurat alfaz ka ek chhota sa majmua hai, jo is umeed se banaya gaya hai ke aapke chehre par muskurahat aaye.\n\nKabhi kabhi behtareen surprise woh cheezein nahi hotin jinhein hum haath mein pakad sakein, balke woh jazbaat hote hain jo dil mein reh jaate hain.",
+                surpriseText: "Surprise! ❤️\n\nAapne abhi ek chhoti si yaaddahani unlock ki hai ke aapki qadar ki jaati hai, aapko saraha jaata hai, aur aap khoobsurat cheezon ki haqdaar hain.\n\nKhushi hamesha aap tak pahunchne ka raasta dhoondh le, aur zindagi aapko haseen lamhon se hairaan karti rahe.",
+                ending: "Yeh chhota sa surprise aapka hai, ise sambhaal kar rakhein. 💌"
+            },
+            {
+                page: 17,
+                title: "MUSKURANE KI HAZAAR WAJAHEIN",
+                heading: "Aaj Muskurane Ki Ek Chhoti Si Wajah 😊",
+                message: "Mohtarma, yeh aapke liye chand yaaddahaniyan hain:",
+                bullets: [
+                    "Aap meharbani ki haqdaar hain.",
+                    "Aapke khwabon ki ahmiyat hai.",
+                    "Aapki khushi ki ahmiyat hai.",
+                    "Aapki koshishein taareef ki haqdaar hain.",
+                    "Aapki infiraadiyat khoobsurat hai.",
+                    "Aap izzat ki haqdaar hain.",
+                    "Aapko ijaazat hai ke zindagi ek qadam ek waqt mein guzaarein.",
+                    "Nayi shuruaat ke liye hamesha jagah hoti hai.",
+                    "Aapki galtiyan aapki poori kahani ki pehchaan nahi hain.",
+                    "Aap apni kamyabiyon ka jashn manane ki haqdaar hain, chhoti kamyabiyon ka bhi."
+                ],
+                type: "reason_generator"
+            },
+            {
+                page: 18,
+                title: "APNA KHAT CHUNEIN",
+                heading: "Kaun Sa Khat Kholna Chahengi? 💌",
+                type: "envelope_selector",
+                letters: [
+                    { title: "Ek Meetha Khat 🌸", content: "Mohtarma, aapka din khilte phoolon se bhare baagh jitna haseen ho. Mujhe umeed hai zindagi aapko muskurane ki be-shumaar wajahein de aur aapka dil khoobsurat yaadon se bhar de." },
+                    { title: "Ek Dil Se Likha Khat ❤️", content: "Kuch log bina koshish kiye ek khoobsurat taassur chhod jaate hain. Aap woh hain jinki mojoodgi aur shakhsiyat sachchi taareef ki haqdaar hai.\n\nMujhe umeed hai aap hamesha jaanein ke aapke jazbaat ki ahmiyat hai, aapke khwab qeemti hain, aur aapki khushi tawajjoh ki haqdaar hai." },
+                    { title: "Ek Khwabeeda Khat 🌙", content: "Agar jazbaat raat ke aasmaan par ukere ja sakte, to main sabse naram rang aur sabse roshan taare chunta ke bata sakoon aap kitni khaas hain.\n\nHar chhota taara aapki khushi ki dua leke aata, har chandni sukoon ka paigham laati, aur har tulu-e-aaftaab aapko ek khoobsurat nayi shuruaat yaad dilata." }
+                ],
+                ending: "Har lifafe mein thodi garmaahat hai, sirf aapke liye likhi hui. 💗"
+            },
+            {
+                page: 19,
+                title: "AAPKE NAAM KA JAADU",
+                heading: "Ek Naam Jo Muskurahat Ka Haqdaar Hai ✨",
+                nameDisplay: "MOHTARMA",
+                message: "Kuch naam un logon ki wajah se khaas ban jaate hain jo unhein apne saath rakhte hain.\n\nEk naam hamein ek muskurahat, ek baat cheet, ek haseen yaad, ya ek aise insaan ki yaad dila sakta hai jo ek pyaara taassur chhod jaata hai.\n\nAur kabhi kabhi kisi khaas naam ko dekhna hi kisi ke chehre par muskurahat laane ke liye kaafi hota hai.\n\nAapke naam ka is kainaat ke chhote se kone mein ek maqaam hai kyunke yeh safha aapka jashn manane ke liye hai.",
+                specialAnim: "Ek Naam. Hazaar Khoobsurat Khayal. Lakhon Chhoti Muskurahatein. ❤️",
+                ending: "Aaj kainaat ka yeh chhota sa kona aapke naam ke naam hai. 🌸"
+            },
+            {
+                page: 20,
+                title: "EK CHHOTA SA PYAAR KA QUIZ",
+                heading: "Aapke Liye Ek Pyaara Sa Quiz 💝",
+                intro: "Ek chhote se challenge ke liye tayyar hain, Mohtarma? In mazedaar sawalon ke jawab dein aur aakhir mein apna chhota sa surprise dhoondhein!",
+                type: "quiz",
+                questions: [
+                    { q: "Din ko kya cheez zyada haseen banati hai?", options: ["Ek pyaari muskurahat 😊", "Ek pursukoon shaam 🌙", "Ek pyaara paigham 💌", "Upar diye gaye sab 💗"] },
+                    { q: "Kaun si jagah sabse jaadui lagti hai?", options: ["Gulaabon ka baagh 🌹", "Taaron bhara aasmaan ⭐", "Ghuroob ke waqt samundar ka kinara 🌅", "Halki dhun wala ek aaraam deh kona 🎵"] },
+                    { q: "Sabse meetha tohfa kaun sa hai?", options: ["Dil se likha khat 💌", "Ek khoobsurat phool 🌷", "Ek soch bhara surprise 🎁", "Sachchi fikr aur izzat 🤍"] },
+                    { q: "Ek khwabeeda shaam ka behtareen rang kaun sa hai?", options: ["Lavender 💜", "Gulaabi 🌸", "Aadhi raat ka neela 🌌", "Sunehra peela ✨"] }
+                ]
+            },
+            {
+                page: 21,
+                title: "HAMARI CHHOTI SI KAINAAT",
+                heading: "Khoobsurat Jazbaat Ki Ek Kainaat 🪐",
+                message: "Kainaat be-shumaar taaron, door ki kehkashaon aur dhoondhe jaane walay raazon se bhari hai.\n\nPhir bhi zindagi ki kuch sabse khoobsurat cheezein roshni ke saalon mein naapi ya taaron mein ginni nahi ja sakti.\n\nMeharbani, khushi, izzat, aur qadar kiye jaane ka ehsaas unhi mein se hain.\n\nAgar har taara ek khoobsurat dua hota, to main aapki khushi, kamyabi, sukoon, aur aapke khwabon ke poora hone ki dua karta.",
+                ending: "Aapki apni kainaat hamesha roshni, sukoon aur khushi se bhari rahe. ✨"
+            },
+            {
+                page: 22,
+                title: "GULAAB KA KAMRA",
+                heading: "Gulaab Ke Kamre Mein Khush Aamdeed 🌹",
+                message: "Gulaabon ke paas jazbaat bayan karne ka ek khoobsurat tareeqa hota hai jise alfaz kabhi kabhi bayan nahi kar paate.\n\nSurkh gulaab mohabbat ki, gulaabi gulaab taareef ki, aur safed gulaab sukoon aur sachchai ki yaad dilate hain.\n\nAgar yeh kamra ek guldasta hota, to main ise un har rang se bharta jo aapki un khoobiyon ko zaahir karte hain jinki main qadar karta hoon.\n\nHar gulaab aapki khushi ki dua leke aata, har pankhuri ek meherbaan khayal hoti, aur har rang aapko yaad dilata ke zindagi be-shumaar tareeqon se haseen ho sakti hai.",
+                ending: "Gulaabon se bhara ek chhota kamra, aur garmaahat se bhara ek paigham. ❤️"
+            },
+            {
+                page: 23,
+                title: "SHAMA KA KONA",
+                heading: "Sukoon Ka Ek Chhota Sa Lamha 🕯️",
+                message: "Ek khaamosh kamre, garm shama ki roshni, halki saaz ki dhun, aur ek pursukoon shaam ka tasawwur karein jahan na jaldi hai na koi fikr.\n\nBaahar aasmaan dheere dheere apne rang badal raha hai jab sooraj ufuq ke paar doob jaata hai.\n\nAndar sab kuch pursukoon, naram aur khoobsurat lagta hai.\n\nKabhi kabhi humein bas thodi si khaamoshi, saans lene ka ek lamha, aur yeh yaad dahaani chahiye hoti hai ke zindagi mein ab bhi haseen cheezein baaki hain.\n\nMohtarma, mujhe umeed hai aapko apni zindagi mein aise pursukoon lamhe hamesha milte rahein.\n\nAapki fikrein halki hon, aapka dil pursukoon ho, aur aapke din roshan hon.",
+                ending: "Aapka dil hamesha ek aisi jagah paaye jahan use sukoon mile. 🤍"
+            },
+            {
+                page: 24,
+                title: "KHWAHISHON SE BHARA AASMAAN",
+                heading: "Ek Dua Maangein, Haseen Rooh 🌠",
+                message: "Ek lamhe ke liye aankhein band karein aur woh cheez sochein jiski aapka dil sachchi khwahish rakhta hai. Ho sakta hai woh ek khwab ho jo aap hasil karna chahti hain, ek jagah jahan aap jana chahti hain, ek maqsad jo aap paana chahti hain, ya bas ek pursukoon aur khush zindagi.",
+                type: "wishes",
+                cards: [
+                    "Aapke khwab roz qareeb aate jaayein. ⭐",
+                    "Khushi aapko tab hairaan kare jab aapko ummeed bhi na ho. 🌸",
+                    "Aapki koshishein kamyabi tak le jaayein. ✨",
+                    "Sukoon hamesha aapke dil tak pahunchne ka raasta dhoondh le. 🤍",
+                    "Aapko apne aap par fakhar karne ki nayi wajahein milein. 🌷",
+                    "Mustaqbil aapko shandaar mauqe de. 🌅"
+                ],
+                ending: "Zindagi aap par us se zyada meherbaan ho jitna aapne kabhi socha ho. ❤️"
+            },
+            {
+                page: 25,
+                title: "AGAR MOHABBAT EK PAINTING HOTI",
+                heading: "Agar Jazbaat Rang Hote 🎨",
+                message: "Agar taareef ek rang hoti, to main usse naram gulaabi mein rangta.\n\nAgar sukoon ek rang hota, to main lavender chunta.\n\nAgar garmaahat ek rang hoti, to main sunehra peela chunta.\n\nAgar umeed ek rang hoti, to main usse ek haseen tulu-e-aaftaab ke rangon mein rangta.\n\nAur agar ek khoobsurat jazba painting ban sakta, to main canvas ko un har rang se bhar deta jo mujhe meharbani, shaan, aur aapki infiraadiyat yaad dilate hain.\n\nPas-e-manzar gulaabon se bhara hota, aasmaan taaron se saja hota, aur poora canvas ek hi paigham deta: zindagi tab aur haseen ho jaati hai jab hum un logon ki qadar karte hain jo ise khaas banate hain.",
+                ending: "Kuch jazbaat samjhane se zyada rang mein behtar lagte hain. 🌷"
+            },
+            {
+                page: 26,
+                title: "MERI MALIKA KA MEHEL",
+                heading: "Meri Khaas Mohtarma Ke Liye Ek Shahi Jagah 👑",
+                message: "Apne chhote se shahi kone mein khush aamdeed, jahan nafaasat husn se milti hai aur har tafseel mein taareef ka ek rang hai.\n\nIzzat ke haqdaar hone ke liye aapko taaj ki zaroorat nahi, aur meharbani se pesh aane ke liye aapko mehel ki zaroorat nahi.\n\nHaqeeqi nafaasat kirdaar, shaan, aur insaan ke apne aap ko sambhalne ke andaaz mein hoti hai.\n\nEk malika sirf taaj ya khitaab se nahi pehchani jaati, balke uski taaqat, waqaar, aitmaad, aur infiraadiyat se pehchani jaati hai.\n\nMohtarma, aap hamesha apni qadar pehchanein aur us izzat aur meharbani se kam par kabhi raazi na hon jiske aap haqdaar hain.",
+                royalWish: "Aap hamesha aitmaad se chalein, waqaar se jeeyein, aur woh izzat paayein jiske aap haqdaar hain. ✨"
+            },
+            {
+                page: 27,
+                title: "MERE DIL KE WAADE",
+                heading: "Chand Waade Jinki Ahmiyat Hai 🤍",
+                type: "promises",
+                promises: [
+                    { title: "Waada 1 — Izzat", text: "Main hamesha izzat ko har ba-maani rishte ki buniyaad maanne ka waada karta hoon." },
+                    { title: "Waada 2 — Imaandaari", text: "Mera yaqeen hai ke sachche alfaz aur khaalis niyyatein khoobsurat magar khokhle waadon se zyada ahmiyat rakhti hain." },
+                    { title: "Waada 3 — Meharbani", text: "Mujhe umeed hai ke main chhote se chhote lamhon mein bhi aapke saath meharbani se pesh aaun." },
+                    { title: "Waada 4 — Samajh", text: "Main andaaze lagane ke bajaye aapke jazbaat ko sunna, samajhna, aur saraahna chahta hoon." },
+                    { title: "Waada 5 — Qadardaani", text: "Mujhe umeed hai main aapki meharbani ya mojoodgi ko kabhi aam nahi samjhunga." },
+                    { title: "Waada 6 — Sabr", text: "Mera yaqeen hai ke ba-maani rishton ko sabr, samajh, aur aage badhne ki aamaadgi ki zaroorat hoti hai." },
+                    { title: "Waada 7 — Khuloos", text: "Main chahta hoon ke mere alfaz aur amal sachchi niyyaton ki aks-baasi karein." }
+                ],
+                ending: "Khoobsurat jazbaat sachche amal se ba-maani banate hain. ❤️"
+            },
+            {
+                page: 28,
+                title: "KHOOBSURAT LAMHON SE BHARA MUSTAQBIL",
+                heading: "Aapka Mustaqbil Haseen Ho 🌅",
+                message: "Jab main mustaqbil ke baare mein sochta hoon, to umeed karta hoon ke woh aapke liye khoobsurat mauqe, ba-maani kamyabiyan, pursukoon din, aur apne aap par fakhar karne ki be-shumaar wajahein laaye.\n\nWoh darwaaze jinka aap intezaar kar rahi hain, sahi waqt par khulein.\n\nAapki mehnat ka sila mile, aapki fikrein halki hon, aur aapke khwab qareeb aayein.\n\nAap aise logon se milein jo aapki meharbani ki qadar karein, aapki hadood ka ehtiram karein, aur aapko apna behtareen roop banne ki himmat dein.\n\nHar mushkil baab aapko kuch qeemti sikhaye, aur har khoobsurat baab aapko yaad dilaye ke aap kitna aage aa chuki hain.",
+                ending: "Aapki zindagi ke sabse khoobsurat baab shayad abhi shuru hone baaki hain. 🌷"
+            },
+            {
+                page: 29,
+                title: "EK AAKHRI SURPRISE",
+                heading: "Jaane Se Pehle... 🎀",
+                type: "final_surprise",
+                message: "Mohtarma, is chhoti si duniya se jaane se pehle main chahta hoon aap ek baat jaanein.\n\nJo bhi safha aapne dekha, woh thodi si khushi, thodi si khoobsurti, aur chand aise alfaz baantne ke liye banaya gaya tha jo shayad aapka din roshan kar sakein.\n\nMain phoolon ki khoobsurti, taaron ka jaadu, khuton ki garmaahat, aur chhote surprises ki mithaas ko ek jagah jama karna chahta tha.\n\nMujhe umeed hai ke is tajurbe ne aapko muskurane par majboor kiya, chahe sirf ek pal ke liye.\n\nAur agar aisa hua hai, to is chhoti si takhleeq ne bilkul wahi hasil kiya jo main chahta tha.\n\nLekin ruko... ek aakhri paigham aapka intezaar kar raha hai.",
+                finalMsg: "Ek aakhri chhoti si yaaddahani: Aap khushi, izzat, meharbani, aur khoobsurat lamhon ki haqdaar hain. Apni qadar kabhi na bhoolein, aur un imkaanaat par yaqeen karna kabhi na chhodein jo aage aapka intezaar kar rahe hain."
+            },
+            {
+                page: 30,
+                title: "HAMESHA MERE DIL MEIN",
+                heading: "Aapke Liye Ek Aakhri Paigham, Mohtarma ❤️",
+                message: "Meri Pyari Mohtarma,\n\nAgar aap is safhe tak pahunch gayi hain, to aapne ek aisi duniya ka chhota sa safar mukammal kar liya hai jo khaas aapke liye banayi gayi thi.\n\nMain chahta tha ke yeh safhe baagh ke phoolon, raat ke aasmaan ke taaron, aur khoobsurat jazbaat le jaane walay chhote khuton jaise lagein.\n\nShayad main hamesha har baat ke liye perfect alfaz na dhoondh sakoon, magar umeed hai in alfaz ne aapko woh izzat, taareef, aur mohabbat dikha di jo main baantna chahta tha.\n\nHar safha ek ba-maani cheez banane ki chhoti si koshish thi, kuch aisa jo aapke chehre par muskurahat laye aur ek aam lamhe ko thoda aur khaas bana de.\n\nHamesha muskurati rahein.\nApne aap par yaqeen rakhein.\nUn khwabon ka peecha karti rahein jo aapke dil ko khush rakhte hain.\nYeh kabhi na bhoolein ke aap ek anokhi shakhsiyat hain jiski apni khoobsurti, taaqat, aur roshni hai.\n\nAapki zindagi sukoon se, aapka dil khushi se, aur aapka mustaqbil shandaar mauqon se bhara rahe.\n\nAur jab bhi aap is chhoti si website par dobara aayein, mujhe umeed hai yeh aapko ek haseen lamha yaad dilaye aur aapke chehre par muskurahat laye.\n\nJo aap hain, uske liye shukriya.",
+                urduPoetry: "“Aapki muskurahat hamesha salamat rahe, aapki zindagi khushiyon se roshan rahe, aur aapke har khoobsurat khwab ko haqeeqat banne ka mauqa mile.”\n\nAapki zindagi mein hamesha mohabbat, izzat, sukoon aur khushiyan rahen.",
+                signature: "Mohabbat, izzat, aur thode se jaadu ke saath banaya gaya. ❤️"
+            }
+        ];
+
+        let currentPage = 1;
+        const totalPages = 30;
+
+        // Initialize App
+        window.onload = function() {
+            renderPage(currentPage);
+            buildDrawerList();
+            buildPaginationDots();
+            initCanvas();
+            startLiveClock();
+            
+            // Close theme dropdown on outside click
+            window.addEventListener('click', function(e) {
+                const dropdown = document.getElementById('theme-dropdown');
+                if (!e.target.closest('button[onclick="toggleThemeDropdown()"]') && !dropdown.contains(e.target)) {
+                    dropdown.classList.add('hidden');
+                }
+            });
+        };
+
+        // Live Clock and Date
+        function startLiveClock() {
+            function updateClock() {
+                const now = new Date();
+                document.getElementById('live-time').innerText = now.toLocaleTimeString();
+                document.getElementById('live-date').innerText = now.toLocaleDateString(undefined, { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
+            }
+            updateClock();
+            setInterval(updateClock, 1000);
+        }
+
+        // Theme Switcher
+        function toggleThemeDropdown() {
+            const dropdown = document.getElementById('theme-dropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        function setTheme(themeName) {
+            document.documentElement.setAttribute('data-theme', themeName);
+            document.getElementById('theme-dropdown').classList.add('hidden');
+        }
+
+        // Render Page Content
+        function renderPage(pageNum) {
+            currentPage = pageNum;
+            const data = pagesData[pageNum - 1];
+            const container = document.getElementById('page-container');
+            
+            document.getElementById('current-page-num').innerText = pageNum;
+            document.getElementById('prev-btn').disabled = (pageNum === 1);
+            document.getElementById('next-btn').innerHTML = (pageNum === totalPages) ? '<span>Mukammal 💖</span>' : '<span>Agla</span> <i class="fa-solid fa-arrow-right"></i>';
+
+            updateDots();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            let html = `<div class="glass-card rounded-3xl p-6 md:p-10 page-content border border-white/20 shadow-2xl relative overflow-hidden">`;
+            
+            html += `<div class="absolute -top-24 -right-24 w-72 h-72 bg-rosePrimary/10 rounded-full blur-3xl pointer-events-none"></div>`;
+            html += `<div class="absolute -bottom-24 -left-24 w-72 h-72 bg-lavenderLight/10 rounded-full blur-3xl pointer-events-none"></div>`;
+
+            html += `<div class="text-center mb-8 relative z-10">`;
+            html += `<span class="text-xs uppercase tracking-widest text-rosePrimary font-semibold px-3 py-1 rounded-full bg-rosePrimary/10 border border-rosePrimary/20">Safha ${pageNum} / ${totalPages}</span>`;
+            html += `<h2 class="font-playfair text-2xl md:text-4xl font-bold mt-3 bg-gradient-to-r from-yellow-200 via-pink-300 to-sky-300 bg-clip-text text-transparent">${data.heading}</h2>`;
+            if (data.subheading) {
+                html += `<p class="text-white/80 text-sm md:text-base mt-2 font-light">${data.subheading}</p>`;
+            }
+            html += `</div>`;
+
+            html += `<div class="relative z-10 space-y-6 text-white/90 text-sm md:text-base leading-relaxed">`;
+
+            if (data.message) {
+                const paragraphs = data.message.split('\n\n');
+                paragraphs.forEach(p => {
+                    html += `<p class="whitespace-pre-line">${p}</p>`;
+                });
+            }
+
+            if (data.button) {
+                html += `<div class="text-center mt-8">`;
+                html += `<button onclick="goToPage(2)" class="px-8 py-4 rounded-full bg-gradient-to-r from-rosePrimary via-roseSecondary to-goldAccent text-white font-semibold shadow-xl hover:scale-105 transition transform duration-300 flex items-center justify-center space-x-3 mx-auto text-lg animate-glow">`;
+                html += `<span>${data.button.text}</span>`;
+                html += `</button>`;
+                html += `</div>`;
+            }
+
+            if (data.letterHeader) {
+                html += `<div class="bg-black/20 p-6 md:p-8 rounded-2xl border border-white/10 font-playfair italic text-white/95 space-y-4 shadow-inner">`;
+                html += `<p class="font-semibold text-roseSecondary">${data.letterHeader}</p>`;
+                const letterParas = data.letterBody.split('\n\n');
+                letterParas.forEach(lp => { html += `<p>${lp}</p>`; });
+                html += `<p class="mt-6 text-right font-semibold text-goldAccent whitespace-pre-line not-italic">${data.letterSign}</p>`;
+                html += `</div>`;
+            }
+
+            if (data.type === 'cards') {
+                html += `<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-6">`;
+                data.cards.forEach(card => {
+                    html += `<div class="glass-card glass-card-hover p-5 rounded-2xl border border-white/10 transition flex flex-col justify-between">`;
+                    html += `<h4 class="font-playfair font-bold text-roseSecondary text-lg mb-2">${card.title}</h4>`;
+                    html += `<p class="text-white/80 text-xs md:text-sm">${card.text}</p>`;
+                    html += `</div>`;
+                });
+                html += `</div>`;
+            }
+
+            if (data.type === 'list') {
+                html += `<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-6 max-h-[380px] overflow-y-auto pr-2">`;
+                data.items.forEach((item, index) => {
+                    html += `<div class="flex items-start space-x-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-rosePrimary/40 transition">`;
+                    html += `<span class="text-rosePrimary font-bold text-sm">#${index + 1}</span>`;
+                    html += `<span class="text-sm md:text-base">${item}</span>`;
+                    html += `</div>`;
+                });
+                html += `</div>`;
+            }
+
+            if (data.type === 'memories') {
+                html += `<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-6">`;
+                data.captions.forEach((cap, i) => {
+                    html += `<div class="group relative rounded-2xl overflow-hidden glass-card border border-white/10 aspect-square flex flex-col items-center justify-center p-4 text-center glass-card-hover">`;
+                    html += `<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>`;
+                    html += `<i class="fa-solid fa-heart text-4xl text-rosePrimary/50 group-hover:text-rosePrimary transition mb-3 relative z-10 animate-bounce"></i>`;
+                    html += `<p class="relative z-10 text-xs md:text-sm font-medium text-white/90">${cap}</p>`;
+                    html += `<span class="absolute bottom-2 right-3 text-[10px] text-white/40">Yaad 0${i+1}</span>`;
+                    html += `</div>`;
+                });
+                html += `</div>`;
+                html += `<p class="text-xs text-center text-goldAccent italic mt-4">${data.note}</p>`;
+            }
+
+            if (data.type === 'garden') {
+                html += `<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">`;
+                data.flowers.forEach(f => {
+                    html += `<div class="glass-card glass-card-hover p-4 rounded-2xl border border-white/10 flex items-center space-x-4">`;
+                    html += `<div class="w-12 h-12 rounded-full bg-rosePrimary/20 flex items-center justify-center text-2xl flex-shrink-0">🌸</div>`;
+                    html += `<div>`;
+                    html += `<h4 class="font-playfair font-bold text-roseSecondary">${f.name}</h4>`;
+                    html += `<p class="text-xs md:text-sm text-white/80 mt-1">${f.wish}</p>`;
+                    html += `</div>`;
+                    html += `</div>`;
+                });
+                html += `</div>`;
+            }
+
+            if (data.type === 'surprise_box') {
+                html += `<div id="surprise-wrapper" class="text-center py-6">`;
+                html += `<p class="whitespace-pre-line text-white/90 mb-8">${data.intro}</p>`;
+                html += `<button onclick="openSurpriseBox()" class="px-8 py-4 rounded-full bg-gradient-to-r from-rosePrimary to-goldAccent text-white font-bold text-lg shadow-xl hover:scale-105 transition transform animate-glow">`;
+                html += `<i class="fa-solid fa-gift mr-2"></i> Apna Surprise Kholein 🎀`;
+                html += `</button>`;
+                html += `</div>`;
+                html += `<div id="surprise-revealed" class="hidden glass-card p-6 rounded-2xl border border-goldAccent/40 bg-goldAccent/5 text-center space-y-4 animate-fadeIn">`;
+                html += `<span class="text-4xl">🎁✨</span>`;
+                html += `<h3 class="font-playfair text-2xl font-bold text-goldAccent">Surprise! ❤️</h3>`;
+                html += `<p class="text-white/90 text-sm md:text-base whitespace-pre-line">${data.surpriseText}</p>`;
+                html += `</div>`;
+            }
+
+            if (data.type === 'reason_generator') {
+                html += `<ul class="space-y-2 my-4 max-h-[250px] overflow-y-auto pr-2">`;
+                data.bullets.forEach(b => {
+                    html += `<li class="flex items-center space-x-3 p-3 rounded-xl bg-white/5 border border-white/10 text-sm md:text-base"><span class="text-rosePrimary">•</span><span>${b}</span></li>`;
+                });
+                html += `</ul>`;
+                html += `<div class="text-center mt-6">`;
+                html += `<button onclick="generateRandomReason()" class="px-6 py-3 rounded-full bg-gradient-to-r from-lavenderDark to-rosePrimary text-white font-semibold shadow-lg hover:opacity-90 transition text-sm">`;
+                html += `Ek Aur Wajah Batayein ✨`;
+                html += `</button>`;
+                html += `<div id="random-reason-box" class="mt-4 p-4 rounded-xl glass-card border border-rosePrimary/30 text-roseSecondary font-playfair italic text-sm md:text-base hidden"></div>`;
+                html += `</div>`;
+            }
+
+            if (data.type === 'envelope_selector') {
+                html += `<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">`;
+                data.letters.forEach((l, idx) => {
+                    html += `<div onclick="openEnvelope(${idx})" class="cursor-pointer glass-card glass-card-hover p-6 rounded-2xl border border-white/10 text-center flex flex-col items-center justify-center space-y-3 group">`;
+                    html += `<i class="fa-solid fa-envelope-open-text text-3xl text-rosePrimary group-hover:scale-110 transition"></i>`;
+                    html += `<h4 class="font-playfair font-bold text-white">${l.title}</h4>`;
+                    html += `<span class="text-xs text-white/50">Parhne ke liye click karein</span>`;
+                    html += `</div>`;
+                });
+                html += `</div>`;
+                html += `<div id="envelope-display" class="hidden glass-card p-6 rounded-2xl border border-rosePrimary/40 mt-6 text-center space-y-3 animate-fadeIn">`;
+                html += `<h4 id="env-title" class="font-playfair font-bold text-roseSecondary text-lg"></h4>`;
+                html += `<p id="env-content" class="text-white/90 text-sm md:text-base whitespace-pre-line italic"></p>`;
+                html += `</div>`;
+            }
+
+            if (data.nameDisplay) {
+                html += `<div class="text-center my-8 py-6 glass-card rounded-2xl border border-rosePrimary/30 bg-gradient-to-r from-rosePrimary/10 via-transparent to-lavenderLight/10">`;
+                html += `<h3 class="font-playfair text-3xl md:text-5xl font-extrabold tracking-wider bg-gradient-to-r from-rosePrimary via-goldAccent to-lavenderLight bg-clip-text text-transparent animate-glow">${data.nameDisplay}</h3>`;
+                html += `<p class="text-goldAccent font-playfair italic mt-3 text-sm md:text-base">${data.specialAnim}</p>`;
+                html += `</div>`;
+            }
+
+            if (data.type === 'quiz') {
+                html += `<p class="text-white/80 text-sm mb-4">${data.intro}</p>`;
+                html += `<div class="space-y-6 my-4">`;
+                data.questions.forEach((qObj, qIdx) => {
+                    html += `<div class="glass-card p-4 rounded-xl border border-white/10 space-y-3">`;
+                    html += `<p class="font-medium text-sm md:text-base text-roseSecondary">Sawal ${qIdx + 1}: ${qObj.q}</p>`;
+                    html += `<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">`;
+                    qObj.options.forEach((opt, oIdx) => {
+                        html += `<button onclick="selectQuizOption(this, ${qIdx})" class="p-2.5 rounded-lg bg-white/5 hover:bg-rosePrimary/20 border border-white/10 text-xs md:text-sm text-left transition">${opt}</button>`;
+                    });
+                    html += `</div>`;
+                    html += `</div>`;
+                });
+                html += `</div>`;
+                html += `<div class="text-center mt-6">`;
+                html += `<button onclick="claimQuizPrize()" class="px-6 py-3 rounded-full bg-gradient-to-r from-goldAccent to-rosePrimary text-midnightBg font-bold shadow-lg hover:opacity-90 transition text-sm">`;
+                html += `Apna Chhota Sa Surprise Hasil Karein 🎀`;
+                html += `</button>`;
+                html += `<p id="quiz-result" class="mt-3 text-goldAccent font-playfair italic hidden text-sm">✨ Bohat khoob intikhaab! Aap duniya ki saari khushiyon ki haqdaar hain, Mohtarma! ❤️</p>`;
+                html += `</div>`;
+            }
+
+            if (data.type === 'wishes') {
+                html += `<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-6">`;
+                data.cards.forEach((w, i) => {
+                    html += `<div class="glass-card glass-card-hover p-4 rounded-2xl border border-white/10 flex flex-col justify-between text-center">`;
+                    html += `<span class="text-2xl mb-2">⭐</span>`;
+                    html += `<p class="text-xs md:text-sm text-white/90 font-medium">${w}</p>`;
+                    html += `</div>`;
+                });
+                html += `</div>`;
+            }
+
+            if (data.type === 'promises') {
+                html += `<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6 max-h-[380px] overflow-y-auto pr-2">`;
+                data.promises.forEach(p => {
+                    html += `<div class="glass-card glass-card-hover p-4 rounded-2xl border border-white/10 flex items-start space-x-3">`;
+                    html += `<span class="text-rosePrimary text-lg">🤍</span>`;
+                    html += `<div>`;
+                    html += `<h4 class="font-playfair font-bold text-roseSecondary text-sm md:text-base">${p.title}</h4>`;
+                    html += `<p class="text-xs md:text-sm text-white/80 mt-1">${p.text}</p>`;
+                    html += `</div>`;
+                    html += `</div>`;
+                });
+                html += `</div>`;
+            }
+
+            if (data.type === 'final_surprise') {
+                html += `<div class="text-center mt-8">`;
+                html += `<button onclick="revealFinalMessage()" class="px-8 py-4 rounded-full bg-gradient-to-r from-rosePrimary via-goldAccent to-roseSecondary text-white font-bold text-base shadow-xl hover:scale-105 transition transform animate-glow">`;
+                html += `Aakhri Paigham Dekhein ❤️`;
+                html += `</button>`;
+                html += `<div id="final-revealed-box" class="hidden glass-card p-6 rounded-2xl border border-rosePrimary/40 mt-6 bg-rosePrimary/5 text-center space-y-3 animate-fadeIn">`;
+                html += `<p class="text-white/95 text-sm md:text-base font-playfair italic">${data.finalMsg}</p>`;
+                html += `</div>`;
+                html += `</div>`;
+            }
+
+            if (data.urduPoetry) {
+                html += `<div class="my-6 p-6 rounded-2xl bg-black/30 border border-goldAccent/30 text-center space-y-4 shadow-inner">`;
+                html += `<p class="font-urdu text-lg md:text-2xl text-goldAccent leading-loose">${data.urduPoetry}</p>`;
+                html += `</div>`;
+                html += `<div class="text-center mt-8 space-y-4">`;
+                html += `<button onclick="goToPage(1)" class="px-8 py-3 rounded-full bg-gradient-to-r from-rosePrimary to-lavenderDark text-white font-semibold shadow-lg hover:opacity-90 transition text-sm">`;
+                html += `Dobara Parhein 💌`;
+                html += `</button>`;
+                html += `<p class="text-xs text-white/50 font-playfair italic mt-4">${data.signature}</p>`;
+                html += `</div>`;
+            }
+
+            if (data.ending) {
+                html += `<div class="mt-8 pt-4 border-t border-white/10 text-center">`;
+                html += `<p class="font-playfair italic text-amber-300 text-base md:text-lg">${data.ending}</p>`;
+                html += `</div>`;
+            }
+            if (data.royalWish) {
+                html += `<div class="mt-8 pt-4 border-t border-white/10 text-center">`;
+                html += `<p class="font-playfair italic text-goldAccent text-base md:text-lg">${data.royalWish}</p>`;
+                html += `</div>`;
+            }
+
+            html += `</div></div>`;
+            container.innerHTML = html;
+        }
+
+        // Navigation Controls
+        function changePage(direction) {
+            let newPage = currentPage + direction;
+            if (newPage >= 1 && newPage <= totalPages) {
+                renderPage(newPage);
+            }
+        }
+
+        function goToPage(pageNum) {
+            if (pageNum >= 1 && pageNum <= totalPages) {
+                renderPage(pageNum);
+                toggleDrawer();
+            }
+        }
+
+        // Drawer Controls
+        function toggleDrawer() {
+            const drawer = document.getElementById('sidebar-drawer');
+            drawer.classList.toggle('translate-x-full');
+        }
+
+        function buildDrawerList() {
+            const list = document.getElementById('drawer-list');
+            let html = '';
+            for (let i = 1; i <= totalPages; i++) {
+                html += `<button onclick="goToPage(${i})" class="w-full text-left px-4 py-2.5 rounded-xl hover:bg-white/10 transition flex items-center justify-between text-sm group">`;
+                html += `<span class="group-hover:text-rosePrimary font-medium">Safha ${i} — ${pagesData[i-1].title}</span>`;
+                html += `<i class="fa-solid fa-chevron-right text-xs text-white/30 group-hover:text-rosePrimary"></i>`;
+                html += `</button>`;
+            }
+            list.innerHTML = html;
+        }
+
+        // Pagination Dots
+        function buildPaginationDots() {
+            const dotsContainer = document.getElementById('pagination-dots');
+            let html = '';
+            for (let i = 1; i <= totalPages; i++) {
+                html += `<button onclick="goToPage(${i})" id="dot-${i}" class="w-2.5 h-2.5 rounded-full bg-white/30 hover:bg-rosePrimary transition" title="Safha ${i}"></button>`;
+            }
+            dotsContainer.innerHTML = html;
+        }
+
+        function updateDots() {
+            for (let i = 1; i <= totalPages; i++) {
+                const dot = document.getElementById(`dot-${i}`);
+                if (dot) {
+                    if (i === currentPage) {
+                        dot.className = "w-4 h-2.5 rounded-full bg-rosePrimary transition-all";
+                    } else {
+                        dot.className = "w-2.5 h-2.5 rounded-full bg-white/30 hover:bg-rosePrimary transition-all";
+                    }
+                }
+            }
+        }
+
+
+        // Lock Screen Logic
+        function checkPasscode() {
+            const val = document.getElementById('lock-input').value.toLowerCase().replace(/\s+/g, ' ').trim();
+            const ok = ['pagal ki jan hon main', 'pagal ki jaan hon main', 'pagal'];
+            if (ok.includes(val)) {
+                document.getElementById('lock-form').classList.add('hidden');
+                document.getElementById('lock-success').classList.remove('hidden');
+            } else {
+                const card = document.querySelector('#lock-form').parentElement;
+                document.getElementById('lock-error').classList.remove('hidden');
+                card.classList.remove('shake'); void card.offsetWidth; card.classList.add('shake');
+            }
+        }
+        function enterWorld() {
+            document.getElementById('lock-screen').classList.add('unlocked');
+            document.body.classList.remove('locked');
+        }
+
+        // Interactive Page Features
+        function openSurpriseBox() {
+            document.getElementById('surprise-wrapper').style.display = 'none';
+            document.getElementById('surprise-revealed').classList.remove('hidden');
+        }
+
+        const randomReasons = [
+            "Kahin na kahin koi aapko ek haseen din ki dua de raha hai.",
+            "Aapki muskurahat jashn manane ke qaabil hai.",
+            "Apni qadar ko kabhi kam na samjhein.",
+            "Aap us meharbani ki haqdaar hain jo aap doosron ko deti hain.",
+            "Har naya din kuch khoobsurat banane ka ek aur mauqa hai.",
+            "Aapke aage bohat se haseen imkaanaat hain.",
+            "Aapki khushi ke liye waqt nikalna ahmiyat rakhta hai.",
+            "Apne aap par yaqeen rakhein, jab raasta mushkil lage tab bhi.",
+            "Aap sukoon aur sachchi khushi ke lamhon ki haqdaar hain.",
+            "Yeh kabhi na bhoolein ke aapke andar kitni salahiyat chhupi hai."
+        ];
+
+        function generateRandomReason() {
+            const randomIndex = Math.floor(Math.random() * randomReasons.length);
+            const box = document.getElementById('random-reason-box');
+            box.innerText = `✨ ${randomReasons[randomIndex]}`;
+            box.classList.remove('hidden');
+        }
+
+        function openEnvelope(index) {
+            const letters = pagesData[17].letters;
+            const display = document.getElementById('envelope-display');
+            document.getElementById('env-title').innerText = letters[index].title;
+            document.getElementById('env-content').innerText = letters[index].content;
+            display.classList.remove('hidden');
+        }
+
+        function selectQuizOption(btn, qIdx) {
+            const parent = btn.parentElement;
+            Array.from(parent.children).forEach(b => b.classList.remove('bg-rosePrimary', 'text-white'));
+            btn.classList.add('bg-rosePrimary', 'text-white');
+        }
+
+        function claimQuizPrize() {
+            document.getElementById('quiz-result').classList.remove('hidden');
+        }
+
+        function revealFinalMessage() {
+            document.getElementById('final-revealed-box').classList.remove('hidden');
+        }
+
+        // Romantic Audio Synthesizer & Volume Control
+        let audioCtx = null;
+        let isPlayingAudio = false;
+        let audioInterval = null;
+        let masterGain = null;
+
+        function toggleAudio() {
+            const icon = document.getElementById('audio-icon');
+            const text = document.getElementById('audio-text');
+
+            if (!isPlayingAudio) {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                    masterGain = audioCtx.createGain();
+                    masterGain.gain.value = parseFloat(document.getElementById('volume-slider').value);
+                    masterGain.connect(audioCtx.destination);
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                playRomanticMelody();
+                audioInterval = setInterval(playRomanticMelody, 8000);
+                isPlayingAudio = true;
+                icon.className = "fa-solid fa-pause";
+                text.innerText = "Ruko";
+            } else {
+                if (audioInterval) clearInterval(audioInterval);
+                isPlayingAudio = false;
+                icon.className = "fa-solid fa-play";
+                text.innerText = "Dhun";
+            }
+        }
+
+        function changeVolume(val) {
+            if (masterGain && audioCtx) {
+                masterGain.gain.setValueAtTime(parseFloat(val), audioCtx.currentTime);
+            }
+        }
+
+        function playRomanticMelody() {
+            if (!isPlayingAudio || !audioCtx) return;
+            const notes = [261.63, 329.63, 392.00, 493.88, 587.33];
+            notes.forEach((freq, index) => {
+                setTimeout(() => {
+                    if (!isPlayingAudio) return;
+                    try {
+                        const osc = audioCtx.createOscillator();
+                        const gain = audioCtx.createGain();
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+                        gain.gain.setValueAtTime(0, audioCtx.currentTime);
+                        gain.gain.linearRampToValueAtTime(0.06, audioCtx.currentTime + 0.8);
+                        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 3.0);
+
+                        osc.connect(gain);
+                        gain.connect(masterGain);
+
+                        osc.start();
+                        osc.stop(audioCtx.currentTime + 3.0);
+                    } catch(e) {}
+                }, index * 1200);
+            });
+        }
+
+        // Background Canvas Animation
+        function initCanvas() {
+            const canvas = document.getElementById('bg-canvas');
+            const ctx = canvas.getContext('2d');
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            const particles = [];
+            const particleCount = 35;
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 4 + 2,
+                    speedY: Math.random() * 0.6 + 0.2,
+                    speedX: (Math.random() - 0.5) * 0.4,
+                    opacity: Math.random() * 0.6 + 0.2,
+                    color: ['#ff758c','#ffd700','#38bdf8','#34d399','#c084fc','#fb923c'][Math.floor(Math.random()*6)]
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: canvas.height + 10,
+                    size: Math.random() * 4 + 2,
+                    speedY: Math.random() * 0.6 + 0.2,
+                    speedX: (Math.random() - 0.5) * 0.4,
+                    opacity: Math.random() * 0.6 + 0.2,
+                    color: ['#ff758c','#ffd700','#38bdf8','#34d399','#c084fc','#fb923c'][Math.floor(Math.random()*6)]
+                });
+
+                if(particles.length > 50) particles.shift();
+
+                particles.forEach(p => {
+                    ctx.save();
+                    ctx.globalAlpha = p.opacity;
+                    ctx.fillStyle = p.color;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+
+                    p.y -= p.speedY;
+                    p.x += p.speedX;
+                });
+
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+    </script>
+</body>
+</html>
